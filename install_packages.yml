@@ -1,0 +1,16 @@
+---
+
+- name: My Test Playbook
+  hosts: all
+  become: true
+  
+  tasks: 
+  - name: install packages
+    yum:
+      name: git
+      state: present
+
+  - name: install docker
+    yum: 
+      name: docker
+      state: present

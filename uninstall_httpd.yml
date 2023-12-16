@@ -1,0 +1,14 @@
+---
+
+- name: The My Playbook
+  hosts: all
+  become: true
+  tasks: 
+  - name: stop httpd service
+    service:
+      name: httpd
+      state: stopped
+  - name: uninsatll httpd packages
+    yum:
+      name: httpd
+      state: absent

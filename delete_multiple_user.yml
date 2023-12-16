@@ -1,0 +1,21 @@
+---
+
+- name: Delete Multiple Users
+  hosts: all
+  become: yes 
+
+  vars:
+    users_to_delete:
+      - sai
+      - hari
+      - raj
+      
+
+  tasks:
+    - name: Ensure users exist and are absent
+      user:
+        name: "{{ item }}"
+        state: absent
+      loop: "{{ users_to_delete }}"
+
+
